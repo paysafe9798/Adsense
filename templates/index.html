@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXBYESFNE4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CXBYESFNE4');
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shani Store - FF Emote Panel</title>
+<meta name="description" content="Shani Store Free Fire emote panel. Send emotes using UID and team code instantly.">
+<meta name="keywords" content="shani store, free fire emote panel, ff emote, send emote free fire">
+
+<style>
+body{background:#000;color:white;font-family:sans-serif;text-align:center;}
+.container{max-width:420px;margin:auto;padding:20px;}
+
+input{
+width:100%;padding:12px;margin:8px 0;
+border-radius:10px;border:none;
+background:#1e293b;color:white;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;margin-top:15px;
+}
+
+.card{
+background:#1e293b;
+padding:6px;border-radius:10px;
+height:120px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+}
+
+.card img{
+width:100%;
+height:55px;
+object-fit:contain;
+opacity:0.4;
+transition:0.3s;
+}
+.card img.loaded{opacity:1;}
+
+.card div{font-size:10px;}
+
+.card button{
+width:95%;
+padding:5px;
+border:none;
+border-radius:6px;
+background:#2563eb;
+color:white;
+font-size:10px;
+}
+
+.success{background:#16a34a !important;}
+
+#moreBtn{
+margin-top:15px;padding:10px;
+border:none;border-radius:10px;
+background:#dc2626;color:white;width:100%;
+}
+
+.whatsapp-btn{
+background:#dc2626;width:100%;
+margin-top:10px;padding:12px;
+border:none;border-radius:10px;color:white;
+}
+
+.headshot-btn{
+background:#7c3aed;width:100%;
+margin-top:10px;padding:12px;
+border:none;border-radius:10px;color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+.howtouse-btn{
+background:#7c3aed;width:100%;
+margin-top:10px;padding:12px;
+border:none;border-radius:10px;color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+.follow{margin:15px 0;color:#aaa;font-size:13px;}
+
+.toast{
+position:fixed;top:20px;left:50%;
+transform:translateX(-50%);
+background:#111;padding:10px 15px;
+border-radius:10px;opacity:0;
+transition:0.3s;
+}
+.toast.show{opacity:1}
+
+.spinner{
+width:14px;height:14px;
+border:2px solid rgba(255,255,255,0.3);
+border-top:2px solid white;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin:auto;
+}
+
+@keyframes spin{
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+}
+
+.switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #1e293b; transition: .4s; border-radius: 24px; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: #2563eb; }
+input:checked + .slider:before { transform: translateX(26px); }
+
+.modal-overlay{
+  display:none;
+  position:fixed;top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  z-index:1000;
+  justify-content:center;
+  align-items:center;
+}
+.modal-overlay.active{display:flex;}
+.modal-box{
+  background:#1e293b;
+  border-radius:14px;
+  padding:20px;
+  max-width:380px;
+  width:90%;
+  text-align:center;
+}
+.modal-box iframe{
+  width:100%;
+  height:200px;
+  border-radius:10px;
+  border:none;
+  margin-bottom:12px;
+}
+.modal-box .buy-text{
+  font-size:15px;
+  color:#fff;
+  margin-bottom:14px;
+  line-height:1.8;
+}
+.modal-box .buy-text span{
+  color:#4ade80;
+  font-weight:bold;
+}
+.modal-close{
+  background:#dc2626;
+  color:white;
+  border:none;
+  padding:8px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+/* Android Panel Button - Red */
+.android-panel-btn {
+  background: #dc2626 !important;
+  border: 2px solid #ef4444 !important;
+  font-weight: bold !important;
+  letter-spacing: 1px !important;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Shani Store</h1>
+<h2>FF Emote Panel</h2>
+
+<p style="font-size:12px;color:#aaa;">SAFE BUT STILL USE ON YOUR ON RISK</p>
+
+<!-- WhatsApp link updated -->
+<!--
+<button class="whatsapp-btn" onclick="window.open('https://chat.whatsapp.com/BaF7qluLma8DUWHbBbsttZ')">
+ID BUY AND SELL GROUP
+</button>
+-->
+
+<!--
+<button class="headshot-btn android-panel-btn" onclick="openHeadshotPanel()">
+  🎯 ANDROID PANEL
+</button>
+-->
+
+<button class="howtouse-btn" onclick="openHowToUse()">
+📖 How To Use
+</button>
+
+<input id="uid" placeholder="Enter UID">
+<input id="team" placeholder="Enter Team Code" maxlength="7" inputmode="numeric">
+
+<div style="display:flex; align-items:center; justify-content:center; gap:10px; margin:10px 0;">
+  <span>No Bot</span>
+  <label class="switch">
+    <input type="checkbox" id="noBot">
+    <span class="slider"></span>
+  </label>
+</div>
+
+<div class="grid" id="buttons"></div>
+
+<button id="moreBtn" onclick="loadMore()">See More</button>
+
+</div>
+
+<!-- ANDROID PANEL POPUP -->
+<!--
+<div class="modal-overlay" id="headshotModal">
+  <div class="modal-box">
+    [ Android panel video updated to TA-I319Hvq8 ]
+    <iframe id="ytFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="buy-text">
+      • WHATSAPP <span>03362908727</span><br>
+      • 1 GAME SAFE<br>
+      [ Price updated to 800 ]
+      • PRICE <span>800</span><br>
+      • Br Cs Working
+    </div>
+    <button class="modal-close" onclick="closeHeadshotPanel()">Close ✕</button>
+  </div>
+</div>
+-->
+
+<!-- How To Use Popup -->
+<div class="modal-overlay" id="howToUseModal">
+  <div class="modal-box">
+    <iframe id="howToUseFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="buy-text">
+      <span>How To Use</span><br>
+      Watch The Video To Learn
+    </div>
+    <button class="modal-close" onclick="closeHowToUse()">Close ✕</button>
+  </div>
+</div>
+
+<!-- STARTUP POPUP -->
+<!--
+<div class="modal-overlay active" id="startupModal">
+  <div class="modal-box">
+    [ Startup video updated to TA-I319Hvq8 ]
+    <iframe
+      id="startupFrame"
+      src="https://www.youtube.com/embed/TA-I319Hvq8?autoplay=1&mute=1"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+    <div class="buy-text">
+      • WHATSAPP <span>03362908727</span><br>
+      • 1 GAME SAFE<br>
+      [ Price updated to 800 ]
+      • PRICE <span>800</span><br>
+      • Br Cs Working
+    </div>
+    <button class="modal-close" onclick="closeStartupModal()">Close ✕</button>
+  </div>
+</div>
+-->
+
+<div id="toast" class="toast"></div>
+
+<!-- Footer nav added for AdSense-required pages -->
+<div style="max-width:420px;margin:30px auto 10px;text-align:center;font-size:12px;">
+  <a href="/blog" style="color:#aaa;text-decoration:none;margin:0 8px;">Blog</a>
+  <a href="/about" style="color:#aaa;text-decoration:none;margin:0 8px;">About</a>
+  <a href="/contact" style="color:#aaa;text-decoration:none;margin:0 8px;">Contact</a>
+  <a href="/privacy" style="color:#aaa;text-decoration:none;margin:0 8px;">Privacy Policy</a>
+</div>
+
+<script>
+function openHeadshotPanel(){
+  // Android panel video updated to TA-I319Hvq8
+  document.getElementById("ytFrame").src = "https://www.youtube.com/embed/TA-I319Hvq8?autoplay=1";
+  document.getElementById("headshotModal").classList.add("active");
+}
+function closeHeadshotPanel(){
+  document.getElementById("ytFrame").src = "";
+  document.getElementById("headshotModal").classList.remove("active");
+}
+/*
+document.getElementById("headshotModal").addEventListener("click", function(e){
+  if(e.target === this) closeHeadshotPanel();
+});
+*/
+
+function openHowToUse(){
+  document.getElementById("howToUseFrame").src = "https://www.youtube.com/embed/FkdxnfP8hL4?autoplay=1";
+  document.getElementById("howToUseModal").classList.add("active");
+}
+function closeHowToUse(){
+  document.getElementById("howToUseFrame").src = "";
+  document.getElementById("howToUseModal").classList.remove("active");
+}
+document.getElementById("howToUseModal").addEventListener("click", function(e){
+  if(e.target === this) closeHowToUse();
+});
+
+function closeStartupModal(){
+  document.getElementById("startupFrame").src = "";
+  document.getElementById("startupModal").classList.remove("active");
+}
+/*
+document.getElementById("startupModal").addEventListener("click", function(e){
+  if(e.target === this) closeStartupModal();
+});
+*/
+
+let lastSendTime = {};
+
+document.getElementById("team").addEventListener("input", function(){
+  this.value = this.value.replace(/\D/g, "").slice(0,7);
+});
+
+function showToast(msg){
+  let t = document.getElementById("toast");
+  t.innerText = msg;
+  t.classList.add("show");
+  setTimeout(() => { t.classList.remove("show"); }, 2000);
+}
+
+let allData = [];
+let box = document.getElementById("buttons");
+let limit = 20;
+
+loadData();
+
+function loadData(){
+  fetch("/static/final_links.json")
+  .then(res => res.json())
+  .then(data => {
+    allData = data.slice(0, limit);
+    render();
+  });
+}
+
+function render(){
+  box.innerHTML = "";
+  for(let item of allData){
+    createCard(item.name, item.id, item.image);
+  }
+}
+
+function createCard(name, id, imgUrl){
+  let card = document.createElement("div");
+  card.className = "card";
+  let img = document.createElement("img");
+  img.src = "https://via.placeholder.com/100x60?text=...";
+  img.loading = "lazy";
+  let realImg = new Image();
+  realImg.src = imgUrl;
+  realImg.onload = () => { img.src = realImg.src; img.classList.add("loaded"); };
+  let nameDiv = document.createElement("div");
+  nameDiv.innerText = name;
+  let btn = document.createElement("button");
+  btn.innerText = "Send";
+  btn.onclick = () => { sendEmote(id, btn); };
+  card.appendChild(img);
+  card.appendChild(nameDiv);
+  card.appendChild(btn);
+  box.appendChild(card);
+}
+
+async function sendEmote(id, btn){
+  let uid = document.getElementById("uid").value;
+  let team = document.getElementById("team").value;
+  if(!uid || !team){ showToast("Enter UID & Team Code"); return; }
+  let now = Date.now() / 1000;
+  if(lastSendTime[uid] && (now - lastSendTime[uid]) < 1){
+    let wait = (1 - (now - lastSendTime[uid])).toFixed(1);
+    showToast(`Please wait ${wait} seconds before sending again ⏱️`);
+    return;
+  }
+  lastSendTime[uid] = now;
+  let original = btn.innerText;
+  btn.innerHTML = '<div class="spinner"></div>';
+  btn.disabled = true;
+  let noBot = document.getElementById("noBot").checked;
+  try{
+    let r = await fetch("/send", {
+      method: "POST",
+      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      body: `uid=${uid}&team=${team}&emote=${id}&no_bot=${noBot}`
+    });
+    let d = await r.json();
+    if(d.status === "success"){ btn.innerText = "✔ Sent"; btn.classList.add("success"); showToast("Success ✅"); }
+    else if(d.status === "blocked") showToast("You are Blocked ❌");
+    else if(d.status === "fail") showToast("Failed to send ❌");
+    else showToast("Error ❌");
+  } catch(e){ showToast("Server Error ❌"); }
+  setTimeout(() => { btn.innerText = original; btn.disabled = false; btn.classList.remove("success"); }, 1500);
+}
+
+function loadMore(){
+  limit += 50;
+  loadData();
+}
+</script>
+
+</body>
+</html>
