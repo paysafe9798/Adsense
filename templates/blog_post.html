@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXBYESFNE4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CXBYESFNE4');
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ post.title }} - Shani Store</title>
+<meta name="description" content="{{ post.excerpt }}">
+
+<style>
+body{background:#000;color:white;font-family:sans-serif;line-height:1.8;}
+.container{max-width:700px;margin:auto;padding:20px 20px 60px;}
+h1{font-size:24px;margin-bottom:5px;}
+.post-date{color:#888;font-size:12px;margin-bottom:20px;display:block;}
+p{color:#cbd5e1;font-size:15px;margin-bottom:16px;}
+.nav{max-width:700px;margin:auto;padding:15px 20px 0;}
+.nav a{color:#aaa;text-decoration:none;font-size:13px;margin-right:15px;}
+.back-btn{
+display:inline-block;margin-top:20px;padding:10px 18px;
+border-radius:10px;background:#2563eb;color:white;
+text-decoration:none;font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/">Home</a>
+  <a href="/blog">Blog</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</div>
+
+<div class="container">
+<h1>{{ post.title }}</h1>
+<span class="post-date">{{ post.date }}</span>
+
+{% for para in post.content %}
+<p>{{ para }}</p>
+{% endfor %}
+
+<a class="back-btn" href="/blog">← Back to Blog</a>
+</div>
+
+</body>
+</html>
