@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<style>
+body{
+font-family:sans-serif;
+background:#020617;
+color:white;
+text-align:center;
+}
+
+input,button{
+padding:10px;
+margin:5px;
+border-radius:8px;
+border:none;
+}
+
+button{
+background:#2563eb;
+color:white;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Blocked UIDs</h2>
+
+<form action="/block" method="POST">
+<input name="uid" placeholder="Enter UID">
+<button>Add Block</button>
+</form>
+
+<ul>
+{% for uid in uids %}
+<li>
+{{ uid }}
+<form action="/unblock" method="POST" style="display:inline;">
+<input type="hidden" name="uid" value="{{ uid }}">
+<button>Unblock</button>
+</form>
+</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
