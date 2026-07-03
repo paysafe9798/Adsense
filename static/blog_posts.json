@@ -1,0 +1,43 @@
+[
+  {
+    "slug": "how-to-use-ff-emote-panel",
+    "title": "How to Use the Shani Store FF Emote Panel (Step-by-Step Guide)",
+    "date": "2026-06-10",
+    "excerpt": "A complete walkthrough of sending Free Fire emotes to any lobby using the Shani Store Emote Panel, including how to find your UID and team code.",
+    "content": [
+      "Sending emotes to a Free Fire lobby using the Shani Store Emote Panel is designed to be quick and simple, even if you've never used a third-party tool before. This guide walks through the entire process from start to finish.",
+      "First, you'll need two pieces of information: your Free Fire UID and your current lobby's Team Code. Your UID is the unique number tied to your Free Fire account, and you can find it on your in-game profile page, usually displayed just below your username. The Team Code is generated when you create or join a squad lobby, and it's shown on the squad screen.",
+      "Once you have both values, open the Emote Panel and enter your UID in the first input field and your Team Code in the second. Double-check both fields, since a single incorrect digit will cause the request to fail silently.",
+      "Next, scroll through the emote grid and tap 'Send' on the emote you want to trigger. The button will show a small loading spinner while the request processes. If successful, the button briefly turns green and shows a checkmark, along with a success toast notification at the top of the screen.",
+      "If you don't see the emote you're looking for right away, tap the 'See More' button at the bottom of the grid to load additional emotes. The panel loads emotes in batches to keep the page fast on mobile connections.",
+      "A few troubleshooting tips: if you get a 'Failed to send' message, confirm that your Team Code is current and that you're actually inside an active lobby. Team Codes refresh each time a new lobby is created, so an old code from a previous match won't work. If you're rate-limited, the panel will show a short countdown before you can send another emote — this is a spam-prevention measure.",
+      "That's the entire flow. The panel doesn't require any app installation, login, or payment for basic use, so you can bookmark the page and use it directly from your mobile browser whenever you're in a match."
+    ]
+  },
+  {
+    "slug": "free-fire-emote-basics",
+    "title": "Free Fire Emotes Explained: What They Are and Why Players Use Them",
+    "date": "2026-06-18",
+    "excerpt": "New to Free Fire or emote panels? Here's a breakdown of what emotes actually do in-game and why they've become such a big part of the community.",
+    "content": [
+      "Emotes in Free Fire are animated actions or gestures your character performs during a match or in the lobby. They range from simple waves and dances to elaborate character-specific animations tied to special events or battle pass rewards.",
+      "While emotes don't directly affect gameplay mechanics like damage or movement speed, they've become a core part of Free Fire's identity and community culture. Players use them to celebrate a kill, taunt an eliminated opponent, or simply express personality during downtime in a match.",
+      "Emotes are unlocked through several methods: purchasing them directly from the in-game store, earning them through battle pass progression, or receiving them as rewards from limited-time events. Rarer emotes, especially those tied to collaboration events with other franchises, can become highly sought after within the community.",
+      "Because emotes are tied to visual flair rather than competitive advantage, Garena (the developer of Free Fire) has leaned into them as a major cosmetic revenue stream and a way to keep the game feeling fresh between content updates.",
+      "Tools like the Shani Store Emote Panel exist to make triggering these emotes faster and more convenient during a live lobby, without needing to navigate multiple in-game menus mid-match. This is especially useful for content creators and squads who want to coordinate emote usage for clips or celebrations."
+    ]
+  },
+  {
+    "slug": "team-code-uid-troubleshooting",
+    "title": "Common Team Code and UID Errors — And How to Fix Them",
+    "date": "2026-06-25",
+    "excerpt": "Getting 'Failed to send' or 'Error' messages on the Emote Panel? Here are the most common causes and quick fixes.",
+    "content": [
+      "One of the most frequent issues players run into with any Free Fire tool that relies on a Team Code is using an expired or mistyped code. Team Codes are generated fresh each time a squad lobby is created, meaning a code from your last match will not carry over to a new one.",
+      "The first thing to check when a send fails is whether your squad lobby is still open and active. If the lobby has closed, disbanded, or started the match countdown past a certain point, the Team Code may stop accepting new join requests.",
+      "Second, make sure your UID is entered without extra spaces or characters. UIDs are purely numeric, and copy-pasting from certain apps can sometimes include invisible whitespace that causes the request to be rejected.",
+      "Third, if you're being told you're blocked, this usually means the UID has been flagged by the system for abuse or spam-like behavior, such as sending an excessive number of requests in a short period. This is a protective measure to keep the tool available for everyone.",
+      "Finally, if none of the above apply and you're still seeing errors, the issue may be temporary downtime on the backend service the panel connects to. In these cases, waiting a few minutes and trying again usually resolves it. If problems persist, reach out through our Contact page and include the approximate time you experienced the issue."
+    ]
+  }
+]
